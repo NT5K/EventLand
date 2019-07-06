@@ -16,13 +16,13 @@
 <img src="assets/images/readme/firebase_example.png" width=500px alt="firebase example">
 
 *before the data is stored on firebase, it first querys the google geolocator api for longitude and latitude:* <br>
-<img src="assets/images/readme/geolocator.png" width=500px alt="google geolocator api call">
+<img src="assets/images/readme/geolocator1.png" width=500px alt="google geolocator api call">
 
 
 *How the app displays data on the page:* <br>
 
 * Once the data is stored in firebase, there are two listeners attached to the database.
   - One for the custom calendar <br>
-  <img src="assets/images/readme/custom_calendar.png" width=500px alt="custom calendar example"> <br>
+  <img src="assets/images/readme/custom_calendar1.png" width=500px alt="custom calendar example"> <br>
   - One to populate the map <br>
-  <img src="assets/images/readme/google_maps.png" width=500px alt="google maps example"> <br>
+  <img src="assets/images/readme/google_maps1.png" width=500px alt="google maps example"> <br>
