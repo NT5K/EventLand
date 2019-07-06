@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" class="text-white">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- reset css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- style.css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase.js"></script>
+    <!-- cabin font -->
+    <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
+    <!-- cleave.js -->
+    <script src="assets/javascript/cleave.min.js"></script>
+
+    <title>Event App</title>
+</head>
+
+<body>
+    <header>
+
+        <div id="navbarHeader" class="collapse text-white shadow">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4>An event creator for Cleveland and across the nation!</h4>
+                        <p><b>
+                                Create a new event by clicking the "Create New Event"
+                                button and filling out the form. Once the form is complete, hit submit and the form will
+                                be added to
+                                the database and populate the screen with the information provided. Scroll through the
+                                calendar and click a
+                                point on the map to learn more about other events!
+                            </b></p>
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4>Share Us</h4>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a class="text-white" href="#">Share Eventland on Facebook</a>
+                            </li>
+                            <li>
+                                <a class="text-white" href="#">Follow on Twitter</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navhov shadow">
+            <div class="navbar navbar-dark shadow-sm">
+                <div class="d-flex justify-content-between">
+                    <a class="navbar-brand d-flex align-items-center Title" href="index.html">
+                        <strong>Eventland</strong>
+                    </a>
+                    <button class="navbar-toggler collapsed shadow" type="button" data-toggle="collapse"
+                        data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false"
+                        aria-label="Toggle navigation"><span class="noshadow">About</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <br>
+    <div class="text-center">
+
+        <!-- form -->
+        <button id="create-new-project" type="submit" class="btn btn-sm mb-3 btn-success">Create New
+            Event</button>
+    </div>
+
+    <div class='container'>
+        <div class="row">
+            <div class="col-xs-12 col-lg-12 float-center" id="eventCard">
+                <div id="create-form">
+                    <div class="card bg-custom">
+                        <div class="card-body bg-success border border-warning">
+                            <div class="form-popup" id="myForm">
+                                <form class="form-container">
+                                    <div class="card-title">
+                                        <h2>New event form:</h2>
+                                        <hr>
+                                    </div>
+                                    <span>
+                                        <!-- name -->
+                                        <input type="text" placeholder="Contact name" name="name" id="name">
+
+                                        <!-- email -->
+                                        <input type="email" placeholder="Contact email" name="email" id="email">
+                                    </span>
+                                    <hr>
+
+                                    <!-- image -->
+                                    <!-- <label'><b>Event Image</b></label>
+                                        <input type='file' placeholder="EventImage" id="image" name="user_image"
+                                            accept="image/*" capture>
+                                        <br> -->
+
+                                    <!-- address -->
+                                    <span>
+                                        <input type="text" id="address" name="address" placeholder="Address/Place">
+
+
+                                        <!-- city -->
+                                        <label> </label>
+                                        <input type="text" id="city" name="city" placeholder="City">
+
+                                        <select id="input-state">
+                                            <option value="void">Select a State</option>
+                                            <option value="AL">Alabama</option>
+                                            <option value="AK">Alaska</option>
+                                            <option value="AZ">Arizona</option>
+                                            <option value="AR">Arkansas</option>
+                                            <option value="CA">California</option>
+                                            <option value="CO">Colorado</option>
+                                            <option value="CT">Connecticut</option>
+                                            <option value="DE">Delaware</option>
+                                            <option value="DC">District Of Columbia</option>
+                                            <option value="FL">Florida</option>
+                                            <option value="GA">Georgia</option>
+                                            <option value="HI">Hawaii</option>
+                                            <option value="ID">Idaho</option>
+                                            <option value="IL">Illinois</option>
+                                            <option value="IN">Indiana</option>
+                                            <option value="IA">Iowa</option>
+                                            <option value="KS">Kansas</option>
+                                            <option value="KY">Kentucky</option>
+                                            <option value="LA">Louisiana</option>
+                                            <option value="ME">Maine</option>
+                                            <option value="MD">Maryland</option>
+                                            <option value="MA">Massachusetts</option>
+                                            <option value="MI">Michigan</option>
+                                            <option value="MN">Minnesota</option>
+                                            <option value="MS">Mississippi</option>
+                                            <option value="MO">Missouri</option>
+                                            <option value="MT">Montana</option>
+                                            <option value="NE">Nebraska</option>
+                                            <option value="NV">Nevada</option>
+                                            <option value="NH">New Hampshire</option>
+                                            <option value="NJ">New Jersey</option>
+                                            <option value="NM">New Mexico</option>
+                                            <option value="NY">New York</option>
+                                            <option value="NC">North Carolina</option>
+                                            <option value="ND">North Dakota</option>
+                                            <option value="OH">Ohio</option>
+                                            <option value="OK">Oklahoma</option>
+                                            <option value="OR">Oregon</option>
+                                            <option value="PA">Pennsylvania</option>
+                                            <option value="RI">Rhode Island</option>
+                                            <option value="SC">South Carolina</option>
+                                            <option value="SD">South Dakota</option>
+                                            <option value="TN">Tennessee</option>
+                                            <option value="TX">Texas</option>
+                                            <option value="UT">Utah</option>
+                                            <option value="VT">Vermont</option>
+                                            <option value="VA">Virginia</option>
+                                            <option value="WA">Washington</option>
+                                            <option value="WV">West Virginia</option>
+                                            <option value="WI">Wisconsin</option>
+                                            <option value="WY">Wyoming</option>
+                                        </select>
+                                    </span>
+                                    <hr>
+
+                                    <!-- date -->
+
+                                    <label><b>Event date</b></label>
+                                    <input class="input-date" type="text" name="date" id="date"
+                                        placeholder="DD/MM/YYYY">
+                                    <br>
+
+                                    <!-- start time -->
+
+                                    <span>
+                                        <input class="start-time" type="text" name="startTime" id="startTime"
+                                            placeholder="Start Time">
+                                        <span>
+                                            <select name="sAmPm" id="sAmPm">
+                                                <option value="AM">AM</option>
+                                                <option value="PM">PM</option>
+                                            </select>
+                                        </span>
+
+                                        <!-- end time -->
+
+                                        <input class="end-time" type="text" name="endTime" id="endTime"
+                                            placeholder="End Time">
+                                        <span>
+                                            <select name="eAmPm" id="eAmPm">
+                                                <option value="AM">AM</option>
+                                                <option value="PM">PM</option>
+                                            </select>
+                                        </span>
+                                    </span>
+
+                                    <hr>
+
+                                    <!-- event name -->
+                                    <label><b>Event name</b></label>
+                                    <input style='width:100%' type='text' placeholder="Give your event a name"
+                                        name='EventName' id="event">
+                                    <br>
+
+                                    <!-- description -->
+                                    <label><b>Event description</b></label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1"
+                                        placeholder="Describe your event in detail" rows="2"></textarea>
+
+                                    <!-- links -->
+                                    <label><b>External Link (optional)</b></label><br>
+                                    <input style='width:100%' type="text" class="input-html" id="externalLinks">
+                                    <hr>
+
+                                    <!-- empty div for alert -->
+                                    <p id="empty-fields-alert" class="text-center" style="color:yellow;"></p>
+
+                                    <!-- buttons -->
+                                    <p><input class="btn btn-warning" type="submit" id="submit-button"
+                                            value="Submit Event!" />
+                                        <input class="btn btn-warning" type="reset" name="reset" id="btn-cancel"
+                                            value="Close Form" />
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row">
+            <!-- map -->
+            <div id="map" class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-3"></div>
+
+            <!-- custom calendar -->
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="custom-calendar"></div>
+            <!-- <div id="rsvpbuttons"><h6>RSVPS:</h6></div> -->
+        </div>
+    </div>
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!-- app.js -->
+    <script src="assets/javascript/app.js"></script>
+
+    <!-- google maps api -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJRWCPrSP6XMDKu-wlDMZy0rBNhPQjo4g">
+    </script>
+
+    <!-- bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

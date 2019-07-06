@@ -1,0 +1,146 @@
+/* =======================
+    navbar/background
+   =======================*/
+html,
+body {
+    background-image: url(../images/Downtown_Cleveland.png);
+    background-size: cover;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.shadow {
+    text-shadow: 1px 1px rgb(37, 37, 37);
+}
+
+.noshadow {
+    text-shadow: 0px 0px rgb(255, 255, 255);
+}
+
+#navbarHeader {
+    background-color: rgba(0, 107, 36, 0.76)
+}
+
+.navhov {
+    background-color: rgba(0, 107, 36, 0.7)
+}
+
+/* should not change bootstrap css, always make a custom id! */
+.navbar-brand .d-flex .align-items-center {
+    float: left;
+}
+
+.Title {
+    margin: 0 auto;
+    padding-right: 8px;
+    float: left;
+    position: relative;
+}
+
+/* ============
+       body
+   ============ */
+
+#map {
+    width: 500px;
+    height: 490px
+}
+
+#custom-calendar {
+
+    height: 490px;
+    width: 500px;
+    overflow: auto;
+    float: left;
+    position: relative;
+    padding-right: 0px
+    /* border: 1px solid grey */
+}
+
+/* ===========
+     form
+   =========== */
+
+#create-form {
+    display: none;
+}
+
+#create-form {
+    z-index: 5;
+    position: absolute;
+    text-align: center;
+    left: 19vw;
+    top: -65px;
+    width: 45vw;
+    height: 58vw;
+    padding: 20px;
+    bottom: 44%;
+}
+
+.blur-filter {
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
+}
+
+/* ===========
+     buttons
+   =========== */
+
+/* button {
+    background-color: yellow;
+}  made this bootstrap */
+
+#create-new-project {
+    margin: 0%;
+
+}
+
+#rsvpbuttons {
+    background-color: white;
+    width: 80%;
+    height: 10%;
+    margin: 20px;
+}
+
+#submit-button {
+    background-color: yellow;
+}
+
+#btn-cancel {
+    background-color: yellow;
+}
+
+button:hover {
+    background-color: rgb(0, 153, 13);
+    transition: 0.9s all;
+}
+
+.card-body {
+    position: relative;
+}
+
+/* ===========
+     fonts
+   =========== */
+
+body {
+    font-family: 'Cabin', sans-serif;
+}
+
+/* ================
+     media query's
+   ================ */
+
+@media screen and (max-width: 953px) {
+    #create-form {
+        width: 65vw;
+    }
+
+    /* body {
+        background-image: remove;
+        background-color: rgb(249, 255, 197)
+    } */
+}
